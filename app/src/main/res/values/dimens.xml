@@ -1,0 +1,18 @@
+<resources>
+    <dimen name="khach_item_w">200dp</dimen>
+    <dimen name="khach_item_w2">130dp</dimen>
+    <dimen name="khach_item_small">150dp</dimen>
+    <dimen name="khach_item_small_field">80dp</dimen>
+    <dimen name="khach_item_padding">20dp</dimen>
+    <dimen name="khach_item_padding2">15dp</dimen>
+    <dimen name="keyline_16">16dp</dimen>
+    <dimen name="keyline_32">32dp</dimen>
+
+
+    <dimen name="itemmovesize">0.1</dimen>
+
+    <dimen name="bnt_setting_w">120dp</dimen>
+    <dimen name="bnt_setting_w2">150dp</dimen>
+    <dimen name="bnt_setting_h">45dp</dimen>
+
+</resources>

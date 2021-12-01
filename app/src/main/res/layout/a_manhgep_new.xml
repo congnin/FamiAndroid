@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/a_manhgep_ct"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_ghephinh">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_hor_1"
+        style="@style/guide_line_horizontal"
+        app:layout_constraintGuide_percent="0.01" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_ver_1"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.033" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_ver_2"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.165" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_ver_3"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.194" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_ver_4"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.325" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_ver_5"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.352" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_ver_6"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.485" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_ver_7"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.512" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_ver_8"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.647" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_ver_9"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.672" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_ver_10"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.81" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_ver_11"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.834" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_ver_12"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.961" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_hor_1"
+        style="@style/guide_line_horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_hor_2"
+        style="@style/guide_line_horizontal"
+        app:layout_constraintGuide_percent="0.57" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_hor_3"
+        style="@style/guide_line_horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <View
+        android:id="@+id/view_phomai"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/line_hor_3"
+        app:layout_constraintEnd_toEndOf="@+id/line_ver_2"
+        app:layout_constraintStart_toStartOf="@+id/line_ver_1"
+        app:layout_constraintTop_toTopOf="@+id/line_hor_1" />
+
+    <ImageView
+        android:id="@+id/img_phomai"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/phomai"
+        app:layout_constraintEnd_toEndOf="@id/line_ver_2"
+        app:layout_constraintHeight_percent="0.19"
+        app:layout_constraintStart_toStartOf="@id/line_ver_1"
+        app:layout_constraintTop_toBottomOf="@id/line_hor_3" />
+
+    <View
+        android:id="@+id/view_caphe"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/line_hor_3"
+        app:layout_constraintEnd_toEndOf="@+id/line_ver_4"
+        app:layout_constraintStart_toStartOf="@+id/line_ver_3"
+        app:layout_constraintTop_toTopOf="@+id/line_hor_1" />
+
+    <ImageView
+        android:id="@+id/img_caphe"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/caphe"
+        app:layout_constraintEnd_toEndOf="@id/line_ver_4"
+        app:layout_constraintHeight_percent="0.19"
+        app:layout_constraintStart_toStartOf="@id/line_ver_3"
+        app:layout_constraintTop_toBottomOf="@id/line_hor_3" />
+
+    <View
+        android:id="@+id/view_bacha"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/line_hor_3"
+        app:layout_constraintEnd_toEndOf="@+id/line_ver_6"
+        app:layout_constraintStart_toStartOf="@+id/line_ver_5"
+        app:layout_constraintTop_toTopOf="@+id/line_hor_1" />
+
+    <ImageView
+        android:id="@+id/img_bacha"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/bacha"
+        app:layout_constraintEnd_toEndOf="@id/line_ver_6"
+        app:layout_constraintHeight_percent="0.19"
+        app:layout_constraintStart_toStartOf="@id/line_ver_5"
+        app:layout_constraintTop_toBottomOf="@id/line_hor_3" />
+
+    <View
+        android:id="@+id/view_dua"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/line_hor_3"
+        app:layout_constraintEnd_toEndOf="@+id/line_ver_8"
+        app:layout_constraintStart_toStartOf="@+id/line_ver_7"
+        app:layout_constraintTop_toTopOf="@+id/line_hor_1" />
+
+    <ImageView
+        android:id="@+id/img_dua"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/dua"
+        app:layout_constraintEnd_toEndOf="@id/line_ver_8"
+        app:layout_constraintHeight_percent="0.19"
+        app:layout_constraintStart_toStartOf="@id/line_ver_7"
+        app:layout_constraintTop_toBottomOf="@id/line_hor_3" />
+
+    <View
+        android:id="@+id/view_tauhu"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/line_hor_3"
+        app:layout_constraintEnd_toEndOf="@+id/line_ver_10"
+        app:layout_constraintStart_toStartOf="@+id/line_ver_9"
+        app:layout_constraintTop_toTopOf="@+id/line_hor_1" />
+
+    <ImageView
+        android:id="@+id/img_tauhu"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/gung"
+        app:layout_constraintEnd_toEndOf="@id/line_ver_10"
+        app:layout_constraintHeight_percent="0.19"
+        app:layout_constraintStart_toStartOf="@id/line_ver_9"
+        app:layout_constraintTop_toBottomOf="@id/line_hor_3" />
+
+    <View
+        android:id="@+id/view_duongden"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/line_hor_3"
+        app:layout_constraintEnd_toEndOf="@+id/line_ver_12"
+        app:layout_constraintStart_toStartOf="@+id/line_ver_11"
+        app:layout_constraintTop_toTopOf="@+id/line_hor_1" />
+
+    <ImageView
+        android:id="@+id/img_duongden"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/duongden"
+        app:layout_constraintEnd_toEndOf="@id/line_ver_12"
+        app:layout_constraintHeight_percent="0.19"
+        app:layout_constraintStart_toStartOf="@id/line_ver_11"
+        app:layout_constraintTop_toBottomOf="@id/line_hor_3" />
+
+
+    <ImageView
+        android:id="@+id/imgMovePhomai"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/phomai"
+        android:visibility="invisible"
+        app:layout_constraintDimensionRatio="280:230"
+        app:layout_constraintHeight_percent="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgMoveCaPhe"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/caphe"
+        android:visibility="invisible"
+        app:layout_constraintDimensionRatio="280:230"
+        app:layout_constraintHeight_percent="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgMoveBacHa"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/bacha"
+        android:visibility="invisible"
+        app:layout_constraintDimensionRatio="280:230"
+        app:layout_constraintHeight_percent="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgMoveDua"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/dua"
+        android:visibility="invisible"
+        app:layout_constraintDimensionRatio="280:230"
+        app:layout_constraintHeight_percent="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgMoveTauHu"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/gung"
+        android:visibility="invisible"
+        app:layout_constraintDimensionRatio="280:230"
+        app:layout_constraintHeight_percent="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgMoveDuongDen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/duongden"
+        android:visibility="invisible"
+        app:layout_constraintDimensionRatio="280:230"
+        app:layout_constraintHeight_percent="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

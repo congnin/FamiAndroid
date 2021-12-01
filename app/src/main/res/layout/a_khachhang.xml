@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_nhanvien"
+    tools:context=".Splash">
+
+<!--  <include layout="@layout/item_logo"/>-->
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/gd_hor_title"
+      style="@style/guide_line_horizontal"
+      app:layout_constraintGuide_percent="0.08"
+      />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/gd_center_vertical"
+      style="@style/guide_line_vertical"
+      app:layout_constraintGuide_percent="0.5"
+      />
+
+  <ImageView
+      android:layout_marginTop="20dp"
+      app:layout_constraintHeight_percent="0.073"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintDimensionRatio="1864:160"
+      android:src="@mipmap/text_thongtin_khachhang"
+      android:layout_width="0dp"
+      android:layout_height="0dp"/>
+
+  <ImageView android:layout_marginRight="20dp"
+      android:id="@+id/text_hoten"
+      app:layout_constraintHeight_percent="0.05"
+      app:layout_constraintBottom_toTopOf="@id/a_kh_edt_ten"
+      app:layout_constraintStart_toStartOf="@id/a_kh_edt_ten"
+      app:layout_constraintDimensionRatio="369:48"
+      android:src="@mipmap/text_hoten"
+      android:layout_width="0dp" android:layout_marginBottom="5dp"
+      android:layout_height="0dp"/>
+
+  <ImageView
+      android:layout_marginRight="20dp"
+      app:layout_constraintHeight_percent="0.05"
+      app:layout_constraintBottom_toTopOf="@id/a_kh_edt_sdt"
+      app:layout_constraintStart_toStartOf="@id/a_kh_edt_sdt"
+      app:layout_constraintDimensionRatio="278:55"
+      android:src="@mipmap/text_sdt"
+      android:layout_width="0dp" android:layout_marginBottom="5dp"
+      android:layout_height="0dp"/>
+
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/gd_top1"
+      style="@style/guide_line_horizontal"
+      app:layout_constraintGuide_percent="0.2"
+      />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/gd_left1"
+      style="@style/guide_line_vertical"
+      app:layout_constraintGuide_percent="0.25"
+      />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/gd_left2"
+      style="@style/guide_line_vertical"
+      app:layout_constraintGuide_percent="0.68"
+      />
+
+  <EditText
+      android:layout_marginRight="30dp"
+      android:id="@+id/a_kh_edt_ten"
+      style="@style/edtInfo"
+      app:layout_constraintTop_toTopOf="@id/gd_top1"
+      app:layout_constraintEnd_toEndOf="@id/gd_center_vertical"
+      app:layout_constraintDimensionRatio="571:97"
+      app:layout_constraintHeight_percent="0.09"
+      android:inputType="text"
+      android:background="@mipmap/bg_border_field"
+      />
+
+  <EditText
+      android:layout_marginLeft="30dp"
+      android:id="@+id/a_kh_edt_sdt"
+      style="@style/edtInfo"
+      app:layout_constraintTop_toTopOf="@id/gd_top1"
+      app:layout_constraintStart_toStartOf="@id/gd_center_vertical"
+      app:layout_constraintDimensionRatio="571:97"
+      app:layout_constraintHeight_percent="0.09"
+      android:inputType="number"
+      android:background="@mipmap/bg_border_field"
+      />
+
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/gd_top2"
+      style="@style/guide_line_horizontal"
+      app:layout_constraintGuide_percent="0.85"
+      />
+
+  <TextView
+      android:id="@+id/a_kh_tv_batdau"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintTop_toTopOf="@id/gd_top2"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintDimensionRatio="721:121"
+      app:layout_constraintHeight_percent="0.08"
+      android:background="@mipmap/bg_bnt_batdauthuthach"
+      />
+
+
+  <TableLayout
+      android:id="@+id/table"
+      app:layout_constraintTop_toBottomOf="@id/a_kh_edt_ten"
+      android:layout_marginTop="10dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      >
+
+    <TableRow android:padding="5dp">
+      <ImageView android:src="@mipmap/text_sl_fm_cx_id"
+          android:textStyle="bold" android:layout_width="@dimen/khach_item_w"
+          style="@style/textwrap"/>
+      <ImageView android:src="@mipmap/text_sl_fm_nc_id"
+          android:textStyle="bold" android:layout_marginLeft="@dimen/khach_item_padding"
+          style="@style/textwrap" android:layout_width="@dimen/khach_item_w"/>
+      <ImageView android:src="@mipmap/t_fami_nc_cd"
+          android:textStyle="bold" android:layout_marginLeft="@dimen/khach_item_padding"
+          style="@style/textwrap" android:layout_width="@dimen/khach_item_w" android:visibility="gone"/>
+      <ImageView android:src="@mipmap/t_fami_nc_id"
+          android:textStyle="bold" android:layout_marginLeft="@dimen/khach_item_padding" android:visibility="gone"
+          style="@style/textwrap" android:layout_width="@dimen/khach_item_w"/>
+
+    </TableRow>
+
+    <TableRow android:layout_margin="5dp">
+      <TextView
+          android:text="@string/bich"
+          android:id="@+id/tv_cx_cd_bich"
+          style="@style/textItemFami"/>
+
+      <TextView
+          android:text="@string/bich"
+          android:id="@+id/tv_cx_id_bich"
+          style="@style/textItemFami" android:layout_marginLeft="@dimen/khach_item_padding"/>
+
+      <TextView
+          android:text="@string/bich" android:visibility="gone"
+          android:id="@+id/tv_nc_cd_bich"
+          style="@style/textItemFami" android:layout_marginLeft="@dimen/khach_item_padding"/>
+
+      <TextView
+          android:text="@string/bich" android:visibility="gone"
+          android:id="@+id/tv_nc_id_bich"
+          style="@style/textItemFami" android:layout_marginLeft="@dimen/khach_item_padding"/>
+    </TableRow>
+
+    <TableRow android:layout_margin="5dp">
+      <TextView
+          android:text="@string/thung_bich"
+          android:id="@+id/tv_cx_cd_thungbich"
+          style="@style/textItemFami"/>
+
+      <TextView
+          android:text="@string/thung_bich"
+          android:id="@+id/tv_cx_id_thungbich"
+          style="@style/textItemFami" android:layout_marginLeft="@dimen/khach_item_padding"/>
+
+      <TextView
+          android:text="@string/thung_bich" android:visibility="gone"
+          android:id="@+id/tv_nc_cd_thungbich"
+          style="@style/textItemFami" android:layout_marginLeft="@dimen/khach_item_padding"/>
+
+      <TextView
+          android:text="@string/thung_bich" android:visibility="gone"
+          android:id="@+id/tv_nc_id_thungbich"
+          style="@style/textItemFami" android:layout_marginLeft="@dimen/khach_item_padding"/>
+    </TableRow>
+
+
+    <TableRow android:layout_margin="5dp">
+      <TextView
+          android:text="@string/loc"
+          android:id="@+id/tv_cx_cd_loc"
+          style="@style/textItemFami"/>
+
+      <TextView
+          android:text="@string/loc"
+          android:id="@+id/tv_cx_id_loc"
+          style="@style/textItemFami" android:layout_marginLeft="@dimen/khach_item_padding"/>
+
+      <TextView
+          android:text="@string/loc" android:visibility="gone"
+          android:id="@+id/tv_nc_cd_loc"
+          style="@style/textItemFami" android:layout_marginLeft="@dimen/khach_item_padding"/>
+
+      <TextView
+          android:text="@string/loc" android:visibility="gone"
+          android:id="@+id/tv_nc_id_loc"
+          style="@style/textItemFami" android:layout_marginLeft="@dimen/khach_item_padding"/>
+    </TableRow>
+
+    <TableRow android:layout_margin="5dp">
+      <TextView
+          android:text="@string/thung_loc"
+          android:id="@+id/tv_cx_cd_thungloc"
+          style="@style/textItemFami"/>
+
+      <TextView
+          android:text="@string/thung_loc"
+          android:id="@+id/tv_cx_id_thungloc"
+          style="@style/textItemFami" android:layout_marginLeft="@dimen/khach_item_padding"/>
+
+      <TextView
+          android:text="@string/thung_loc" android:visibility="gone"
+          android:id="@+id/tv_nc_cd_thungloc"
+          style="@style/textItemFami" android:layout_marginLeft="@dimen/khach_item_padding"/>
+
+      <TextView
+          android:text="@string/thung_loc" android:visibility="gone"
+          android:id="@+id/tv_nc_id_thungloc"
+          style="@style/textItemFami" android:layout_marginLeft="@dimen/khach_item_padding"/>
+
+    </TableRow>
+
+
+
+
+
+  </TableLayout>
+
+
+  <TextView android:id="@+id/msnv"
+      android:textSize="20sp"
+      android:text="MSNV:"
+      android:layout_margin="20dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

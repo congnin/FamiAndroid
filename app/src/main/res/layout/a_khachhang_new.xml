@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_nhanvien_new"
+    tools:context=".Splash">
+
+    <!--  <include layout="@layout/item_logo"/>-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_hor_title"
+        style="@style/guide_line_horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_center_vertical"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/text_thongtin_khachhang_new"
+        app:layout_constraintDimensionRatio="1934:160"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.073"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/text_hoten"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        android:src="@mipmap/text_hoten_new"
+        app:layout_constraintBottom_toTopOf="@id/a_kh_edt_ten"
+        app:layout_constraintDimensionRatio="275:35"
+        app:layout_constraintHeight_percent="0.035"
+        app:layout_constraintStart_toStartOf="@id/a_kh_edt_ten" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        android:src="@mipmap/text_sdt_new"
+        app:layout_constraintBottom_toTopOf="@id/a_kh_edt_sdt"
+        app:layout_constraintDimensionRatio="182:35"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintStart_toStartOf="@id/a_kh_edt_sdt" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_top1"
+        style="@style/guide_line_horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_left1"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_left2"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.68" />
+
+    <EditText
+        android:id="@+id/a_kh_edt_ten"
+        style="@style/edtInfo"
+        android:layout_marginRight="30dp"
+        android:background="@mipmap/bg_border_item_field_new"
+        android:inputType="text"
+        app:layout_constraintDimensionRatio="571:97"
+        app:layout_constraintEnd_toEndOf="@id/gd_center_vertical"
+        app:layout_constraintHeight_percent="0.09"
+        app:layout_constraintTop_toTopOf="@id/gd_top1" />
+
+    <EditText
+        android:id="@+id/a_kh_edt_sdt"
+        style="@style/edtInfo"
+        android:layout_marginLeft="30dp"
+        android:background="@mipmap/bg_border_item_field_new"
+        android:inputType="number"
+        app:layout_constraintDimensionRatio="571:97"
+        app:layout_constraintHeight_percent="0.09"
+        app:layout_constraintStart_toStartOf="@id/gd_center_vertical"
+        app:layout_constraintTop_toTopOf="@id/gd_top1" />
+
+    <ImageView
+        android:id="@+id/text_so_luong_mua"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/text_soluongmua"
+        app:layout_constraintDimensionRatio="445:35"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a_kh_edt_ten" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_top2"
+        style="@style/guide_line_horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <TextView
+        android:id="@+id/a_kh_tv_batdau"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="BẮT ĐẦU"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@drawable/bg_gradient_green"
+        app:layout_constraintDimensionRatio="721:121"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/gd_top2" />
+
+
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_so_luong_mua">
+
+        <TableRow>
+
+            <TextView
+                style="@style/textwrapTitle"
+                android:layout_width="@dimen/khach_item_w2"
+                android:text="FAMI NGUYÊN CHẤT"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/textwrapTitle"
+                android:layout_width="@dimen/khach_item_w2"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="FAMI CANXI"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/textwrapTitle"
+                android:layout_width="@dimen/khach_item_w2"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="FAMI KID"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:text="FAMI GO"
+                style="@style/textwrapTitle"
+                android:layout_width="@dimen/khach_item_w2"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:src="@mipmap/t_fami_nc_id"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:text="VINASOY"
+                style="@style/textwrapTitle"
+                android:layout_width="@dimen/khach_item_w2"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:src="@mipmap/t_fami_nc_id"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+        </TableRow>
+
+        <TableRow android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/tv_fm_nc_bich"
+                style="@style/textItemFami"
+                android:text="@string/bich" />
+
+            <TextView
+                android:id="@+id/tv_fm_cx_bich"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/bich" />
+
+            <TextView
+                android:id="@+id/tv_fm_kid_loc"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/loc"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_fm_go_bich"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/bich"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_vinasoy_loc"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/loc"
+                android:visibility="visible" />
+        </TableRow>
+
+        <TableRow android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/tv_fm_nc_thungbich"
+                style="@style/textItemFami"
+                android:text="@string/thung_bich" />
+
+            <TextView
+                android:id="@+id/tv_fm_cx_thungbich"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/thung_bich" />
+
+            <TextView
+                android:id="@+id/tv_fm_kid_thungloc"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/thung_loc"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_fm_go_thungbich"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/thung_bich"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_visasoy_thungloc"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/thung_loc"
+                android:visibility="visible" />
+        </TableRow>
+
+
+        <TableRow android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/tv_fm_nc_loc"
+                style="@style/textItemFami"
+                android:text="@string/loc" />
+
+            <TextView
+                android:id="@+id/tv_fm_cx_loc"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/loc" />
+
+            <TextView
+                android:id="@+id/tv_nc_cd_loc"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/loc"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/tv_fm_go_loc"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/loc"
+                android:visibility="visible" />
+        </TableRow>
+
+        <TableRow android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/tv_fm_nc_thungloc"
+                style="@style/textItemFami"
+                android:text="@string/thung_loc" />
+
+            <TextView
+                android:id="@+id/tv_fm_cx_thungloc"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/thung_loc" />
+
+            <TextView
+                android:id="@+id/tv_nc_cd_thungloc"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/thung_loc"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/tv_fm_go_thungloc"
+                style="@style/textItemFami"
+                android:layout_marginLeft="@dimen/khach_item_padding2"
+                android:text="@string/thung_loc"
+                android:visibility="visible" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+
+    <TextView
+        android:id="@+id/msnv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="MSNV:"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

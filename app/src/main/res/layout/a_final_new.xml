@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_thamgia_new"
+    android:id="@+id/a_final_layout"
+    tools:context=".Splash">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/linetext"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.422"
+        />
+
+
+    <ImageView
+        android:id="@+id/splash_title"
+        android:layout_marginTop="50dp"
+        app:layout_constraintWidth_percent="0.5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/linetext"
+        app:layout_constraintDimensionRatio="1189:510"
+        android:src="@mipmap/text_camon_ban"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

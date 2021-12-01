@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/a_manhgepchucmung_ct"
+    android:background="@mipmap/bg_quatangcuaban"
+    tools:context=".Splash">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_textv"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.11"
+        />
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/line_textv"
+        app:layout_constraintDimensionRatio="947:250"
+        android:src="@mipmap/text_quacuaban"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_top1"
+        style="@style/guide_line_horizontal"
+        app:layout_constraintGuide_percent="0.24"
+        />
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:id="@+id/linear_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/line_top1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.27"
+        >
+
+        <FrameLayout
+            android:id="@+id/framequa1"
+            style="@style/frame_qua">
+
+            <ImageView
+                android:id="@+id/quatang1"
+                android:src="@mipmap/qua1name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <TextView style="@style/text_number"
+                android:id="@+id/tvqua1"
+                android:text="9" android:layout_marginLeft="40dp"
+                />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/framequa2"
+            style="@style/frame_qua">
+
+            <ImageView
+                android:id="@+id/quatang2"
+                android:src="@mipmap/qua2name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <TextView style="@style/text_number"
+                android:id="@+id/tvqua2"
+                android:text="9"
+                />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/framequa3"
+            style="@style/frame_qua">
+
+            <ImageView
+                android:id="@+id/quatang3"
+                android:src="@mipmap/qua3name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <TextView style="@style/text_number"
+                android:id="@+id/tvqua3"
+                android:text="9"
+                />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:id="@+id/linear_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.27"
+        >
+
+        <FrameLayout
+            android:id="@+id/framequa4"
+            style="@style/frame_qua">
+
+            <ImageView
+                android:id="@+id/quatang4"
+                android:src="@mipmap/qua4name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <TextView style="@style/text_number"
+                android:id="@+id/tvqua4"
+                android:text="9"
+                />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/framequa5"
+            style="@style/frame_qua">
+
+            <ImageView
+                android:id="@+id/quatang5"
+                android:src="@mipmap/qua5name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <TextView style="@style/text_number"
+                android:id="@+id/tvqua5"
+                android:text="9"
+                />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/framequa6"
+            style="@style/frame_qua">
+
+            <ImageView
+                android:id="@+id/quatang6"
+                android:src="@mipmap/qua6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <TextView style="@style/text_number"
+                android:id="@+id/tvqua6"
+                android:text="9"
+                />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/framequa7"
+            style="@style/frame_qua">
+
+            <ImageView
+                android:id="@+id/quatang7"
+                android:src="@mipmap/qua7name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <TextView style="@style/text_number"
+                android:id="@+id/tvqua7"
+                android:text="9"
+                />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout android:orientation="vertical"
+        android:id="@+id/linear_click_all"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

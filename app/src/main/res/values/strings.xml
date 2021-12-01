@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">Fami Ít Đường</string>
+
+
+    <string name="thongtinkhachhang">THÔNG TIN KHÁCH HÀNG</string>
+    <string name="hoten">HỌ TÊN</string>
+    <string name="sdt">SỐ ĐIỆN THOẠI</string>
+    <string name="batdauthuthach">BẮT ĐẦU THỬ THÁCH</string>
+
+
+    <string name="thongtinnhanvien">THÔNG TIN NHÂN VIÊN</string>
+    <string name="manhanvien">MÃ NHÂN VIÊN</string>
+    <string name="tensieuthi">TÊN SIÊU THỊ</string>
+    <string name="matma">MẬT MÃ</string>
+    <string name="ngaylamviec">NGÀY LÀM VIỆC</string>
+    <string name="dangnhap">ĐĂNG NHẬP</string>
+
+
+    <string name="tenqua">Tên quà</string>
+    <string name="phanqua">PHẦN QUÀ</string>
+    <string name="soqua">Số quà</string>
+    <string name="soqua_cap">SỐ QUÀ</string>
+    <string name="tile">Tỉ lệ</string>
+    <string name="tile_cap">TỶ LỆ</string>
+    <string name="sodatrao">Số trao</string>
+    <string name="sodatrao_cap">SỐ QUÀ ĐÃ TRAO</string>
+    <string name="conlai">Còn lại</string>
+    <string name="conlai_cap">CÒN LẠI</string>
+
+    <string name="choncuahang">Chọn cửa hàng</string>
+    <string name="huy">Hủy</string>
+    <!--    <string name="tennhanvien">test</string>-->
+    <string name="tennhanvien">test</string>
+    <string name="matmanv">123456</string>
+
+    <!--    <string name="tennhanvien"></string>-->
+    <!--    <string name="matmanv"></string>-->
+
+    <string name="vuilongnhapdayduthongtin">Vui lòng nhập đầy đủ thông tin</string>
+    <string name="tilekodu">Tỉ lệ không đủ 100</string>
+    <string name="soquakhonghople">Số quà ko được nhỏ hơn số đã trao</string>
+
+    <string name="q1name">1 Túi Canvas</string>
+    <string name="q2name">1 Ly thủy tinh</string>
+    <string name="q3name">1 Thùng fami</string>
+    <string name="q4name">1 Nón bảo hiểm</string>
+    <string name="q5name">1 Bình đá</string>
+
+    <string name="q1nameV2">HỘP SỮA FAMI</string>
+    <string name="q2nameV2">LY THỦY TINH</string>
+    <string name="q3nameV2">NƯỚC KHOÁNG THẠCH BÍCH</string>
+    <string name="q4nameV2">NHIỆT KẾ</string>
+    <string name="q5nameV2">GẤU BÔNG</string>
+    <string name="q6nameV2">THÙNG SỮA FAMI</string>
+
+    <string name="luulai">Lưu</string>
+    <string name="reset">Reset</string>
+    <string name="reset_new">Cài đặt</string>
+    <string name="qualai">Quay lại</string>
+    <string name="thietlapquatang">Thiết lập quà tặng</string>
+
+    <string name="nhanvienchuadangnhap">Nhân viên chưa đăng nhập</string>
+    <string name="dahetqua">Đã hết quà</string>
+
+    <string name="loc">Lốc</string>
+    <string name="thung_loc">Thùng lốc</string>
+    <string name="bich">Bịch</string>
+    <string name="thung_bich">Thùng bịch</string>
+
+    <string name="bankhongcoluotquay">Bạn không có lượt quay</string>
+
+    <string name="dongy">Đồng ý</string>
+    <string name="nhapsoluong">Nhập số lượng</string>
+    <string name="lan">Lần</string>
+    <string name="chon">Chọn</string>
+
+    <string name="soluongmuafamigo">Số lượng mua Fami Go</string>
+    <string name="soluongmuafamicanxi">Số lượng mua Fami Canxi ít đường</string>
+    <string name="soluongmuafaminguyenchat">Số lượng mua Fami Nguyên chất ít đường</string>
+
+    <string name="soluongphaitu10">Số lượng phải từ 10 bịch trở lên</string>
+    <string name="soluongphaitu2">Số lượng phải từ 2 lốc trở lên</string>
+
+
+    <string name="soluotquay">Lần </string>
+
+    <string name="banhapkhongdung">Vui lòng nhập đúng định dạng số</string>
+
+    <string name="loiketnoi">Lỗi kết nối , vui lòng kiểm tra mạng</string>
+
+
+</resources>
