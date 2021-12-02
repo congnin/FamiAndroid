@@ -144,14 +144,12 @@
 
     <style name="text_number" >
         <!-- Customize your theme here. -->
-        <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_width">45dp</item>
         <item name="android:layout_height">45dp</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/colortext</item>
         <item name="android:background">@drawable/bg_circle</item>
         <item name="android:gravity">center</item>
-        <item name="android:layout_marginLeft">-40dp</item>
         <item name="android:layout_gravity">center_horizontal|bottom</item>
     </style>
 

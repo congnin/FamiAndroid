@@ -43,8 +43,8 @@ class AManhgepV2 : ABase() {
 
         initView()
 
-        val shuffPosList = positionList.toMutableList().shuffled()
-        positionList = shuffPosList
+//        val shuffPosList = positionList.toMutableList().shuffled()
+//        positionList = shuffPosList
 //        Utils.toast(this, positionList.toString())
 
         for ((index, value) in positionList.withIndex()) {

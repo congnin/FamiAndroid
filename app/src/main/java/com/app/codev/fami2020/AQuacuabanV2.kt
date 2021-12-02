@@ -2,8 +2,8 @@ package com.app.codev.fami2020
 
 import android.os.Bundle
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.app.codev.Seleton
 import com.app.codev.utils.Utils
 import kotlinx.android.synthetic.main.a_quacuaban_new.*
@@ -35,7 +35,7 @@ class AQuacuabanV2 : ABase() {
         for (i in 0 until listID.size) {
             if (listID[i] > 0) {
                 if (i < idView.size) {
-                    val view = findViewById<FrameLayout>(idView[i])
+                    val view = findViewById<ConstraintLayout>(idView[i])
                     view.visibility = View.VISIBLE
 
                     val textnumber = findViewById<TextView>(idTextNumberView[i])
