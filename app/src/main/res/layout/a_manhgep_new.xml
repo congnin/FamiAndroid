@@ -97,7 +97,7 @@
         app:layout_constraintTop_toTopOf="@+id/line_hor_1" />
 
     <ImageView
-        android:id="@+id/img_phomai"
+        android:id="@+id/img1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@mipmap/phomai"
@@ -116,7 +116,7 @@
         app:layout_constraintTop_toTopOf="@+id/line_hor_1" />
 
     <ImageView
-        android:id="@+id/img_caphe"
+        android:id="@+id/img2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@mipmap/caphe"
@@ -135,7 +135,7 @@
         app:layout_constraintTop_toTopOf="@+id/line_hor_1" />
 
     <ImageView
-        android:id="@+id/img_bacha"
+        android:id="@+id/img3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@mipmap/bacha"
@@ -154,7 +154,7 @@
         app:layout_constraintTop_toTopOf="@+id/line_hor_1" />
 
     <ImageView
-        android:id="@+id/img_dua"
+        android:id="@+id/img4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@mipmap/dua"
@@ -173,7 +173,7 @@
         app:layout_constraintTop_toTopOf="@+id/line_hor_1" />
 
     <ImageView
-        android:id="@+id/img_tauhu"
+        android:id="@+id/img5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@mipmap/gung"
@@ -192,7 +192,7 @@
         app:layout_constraintTop_toTopOf="@+id/line_hor_1" />
 
     <ImageView
-        android:id="@+id/img_duongden"
+        android:id="@+id/img6"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@mipmap/duongden"

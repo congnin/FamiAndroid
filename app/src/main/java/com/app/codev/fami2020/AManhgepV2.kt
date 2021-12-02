@@ -7,21 +7,23 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.MotionEvent
 import android.view.View
+import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.app.codev.utils.Utils
 import kotlinx.android.synthetic.main.a_manhgep_new.*
 import kotlin.math.abs
 
-
 class AManhgepV2 : ABase() {
 
-    var phomaiActive = false
-    var capheActive = false
-    var bachaActive = false
-    var duaActive = false
-    var tauhuActive = false
-    var duongdenActive = false
+    val resultList = arrayOf(false, false, false, false, false, false)
+    val imgList = arrayOf(R.id.img1, R.id.img2, R.id.img3, R.id.img4, R.id.img5, R.id.img6)
+    val viewList = listOf(R.id.view_phomai, R.id.view_caphe, R.id.view_bacha,
+            R.id.view_dua, R.id.view_tauhu, R.id.view_duongden)
+    val moveList = listOf(R.id.imgMovePhomai, R.id.imgMoveCaPhe, R.id.imgMoveBacHa,
+            R.id.imgMoveDua, R.id.imgMoveTauHu, R.id.imgMoveDuongDen)
+    var mipmapList = listOf(R.mipmap.phomai, R.mipmap.caphe, R.mipmap.bacha, R.mipmap.dua, R.mipmap.gung, R.mipmap.duongden)
+    var positionList = listOf(0, 1, 2, 3, 4, 5)
 
     private var locationF1 = IntArray(2)
 
@@ -40,6 +42,14 @@ class AManhgepV2 : ABase() {
         detectNavigationButtonBar()
 
         initView()
+
+        val shuffPosList = positionList.toMutableList().shuffled()
+        positionList = shuffPosList
+//        Utils.toast(this, positionList.toString())
+
+        for ((index, value) in positionList.withIndex()) {
+            findViewById<ImageView>(imgList[index]).setImageResource(mipmapList[value])
+        }
     }
 
     fun getLocationOnScreen(view: View): Point {
@@ -60,347 +70,71 @@ class AManhgepV2 : ABase() {
         Utils.loge("", "w=$windowwidth")
         Utils.loge("", "h=$windowheight")
 
-        // phomai
-        img_phomai.setOnTouchListener { v, event ->
-            val layoutParams: ConstraintLayout.LayoutParams =
-                    imgMovePhomai.getLayoutParams() as ConstraintLayout.LayoutParams
-            when (event.action) {
+        // img1
+        for ((pos, img) in imgList.withIndex()) {
+            findViewById<ImageView>(img).setOnTouchListener { v, event ->
+                val layoutParams: ConstraintLayout.LayoutParams =
+                        findViewById<ImageView>(moveList[positionList[pos]]).getLayoutParams() as ConstraintLayout.LayoutParams
+                when (event.action) {
 
-                MotionEvent.ACTION_UP -> {
-                    if (!phomaiActive) {
-                        imgMovePhomai.visibility = View.INVISIBLE
-                        img_phomai.visibility = View.VISIBLE
+                    MotionEvent.ACTION_UP -> {
+                        if (!resultList[pos]) {
+                            findViewById<ImageView>(moveList[positionList[pos]]).visibility = View.INVISIBLE
+                            findViewById<ImageView>(img).visibility = View.VISIBLE
+                        }
+                        checkResult()
                     }
-                    checkResult()
+
+                    MotionEvent.ACTION_DOWN -> {
+                        findViewById<View>(viewList[positionList[pos]]).getLocationOnScreen(locationF1)
+                        xWidth = findViewById<ImageView>(img).measuredWidth / 2
+                        yHeight = findViewById<ImageView>(img).measuredHeight / 2
+                        Utils.loge("", "xWidth=$xWidth --- yHeight=$yHeight")
+                    }
+                    MotionEvent.ACTION_MOVE -> {
+                        var x_cord = event.rawX.toInt() - xWidth
+                        var y_cord = event.rawY.toInt() - yHeight
+                        if (x_cord > windowwidth) {
+                            x_cord = windowwidth
+                        }
+                        if (y_cord > windowheight) {
+                            y_cord = windowheight
+                        }
+
+                        layoutParams.marginStart = x_cord
+                        layoutParams.topMargin = y_cord
+                        findViewById<ImageView>(moveList[positionList[pos]]).layoutParams = layoutParams
+                        if (findViewById<ImageView>(moveList[positionList[pos]]).visibility == View.INVISIBLE) {
+                            findViewById<ImageView>(moveList[positionList[pos]]).visibility = View.VISIBLE
+                            findViewById<ImageView>(img).visibility = View.INVISIBLE
+                        }
+
+
+                        val disX = abs(x_cord - locationF1[0]) - 80
+                        val disY = abs(y_cord - locationF1[1])
+                        //Utils.loge("","disx=$disX --- disY=$disY")
+
+                        if (disX < disCal && disY < disCal) {
+                            findViewById<ImageView>(moveList[positionList[pos]]).visibility = View.GONE
+                            findViewById<ImageView>(img).visibility = View.INVISIBLE
+                            resultList[pos] = true
+                        }
+                    }
+                    else -> {
+                    }
                 }
-
-                MotionEvent.ACTION_DOWN -> {
-                    view_phomai.getLocationOnScreen(locationF1)
-                    xWidth = img_phomai.measuredWidth / 2
-                    yHeight = img_phomai.measuredHeight / 2
-                    Utils.loge("", "xWidth=$xWidth --- yHeight=$yHeight")
-                }
-                MotionEvent.ACTION_MOVE -> {
-                    var x_cord = event.rawX.toInt() - xWidth
-                    var y_cord = event.rawY.toInt() - yHeight
-                    if (x_cord > windowwidth) {
-                        x_cord = windowwidth
-                    }
-                    if (y_cord > windowheight) {
-                        y_cord = windowheight
-                    }
-
-                    layoutParams.marginStart = x_cord
-                    layoutParams.topMargin = y_cord
-                    imgMovePhomai.layoutParams = layoutParams
-                    if (imgMovePhomai.visibility == View.INVISIBLE) {
-                        imgMovePhomai.visibility = View.VISIBLE
-                        img_phomai.visibility = View.INVISIBLE
-                    }
-
-
-                    val disX = abs(x_cord - locationF1[0]) - 80
-                    val disY = abs(y_cord - locationF1[1])
-                    //Utils.loge("","disx=$disX --- disY=$disY")
-
-                    if (disX < disCal && disY < disCal) {
-                        imgMovePhomai.visibility = View.GONE
-                        img_phomai.visibility = View.INVISIBLE
-                        view_phomai.visibility = View.VISIBLE
-                        phomaiActive = true
-                    }
-                }
-                else -> {
-                }
+                true
             }
-            true
-        }
-
-        // ca phe
-        img_caphe.setOnTouchListener { v, event ->
-            val layoutParams: ConstraintLayout.LayoutParams =
-                    imgMoveCaPhe.getLayoutParams() as ConstraintLayout.LayoutParams
-            when (event.action) {
-
-                MotionEvent.ACTION_UP -> {
-                    if (!capheActive) {
-                        imgMoveCaPhe.visibility = View.INVISIBLE
-                        img_caphe.visibility = View.VISIBLE
-                    }
-                    checkResult()
-                }
-
-                MotionEvent.ACTION_DOWN -> {
-                    view_caphe.getLocationOnScreen(locationF1)
-                    xWidth = img_caphe.measuredWidth / 2
-                    yHeight = img_caphe.measuredHeight / 2
-                    Utils.loge("", "xWidth=$xWidth --- yHeight=$yHeight")
-                }
-                MotionEvent.ACTION_MOVE -> {
-                    var x_cord = event.rawX.toInt() - xWidth
-                    var y_cord = event.rawY.toInt() - yHeight
-                    if (x_cord > windowwidth) {
-                        x_cord = windowwidth
-                    }
-                    if (y_cord > windowheight) {
-                        y_cord = windowheight
-                    }
-
-                    layoutParams.marginStart = x_cord
-                    layoutParams.topMargin = y_cord
-                    imgMoveCaPhe.layoutParams = layoutParams
-                    if (imgMoveCaPhe.visibility == View.INVISIBLE) {
-                        imgMoveCaPhe.visibility = View.VISIBLE
-                        img_caphe.visibility = View.INVISIBLE
-                    }
-
-
-                    val disX = abs(x_cord - locationF1[0]) - 80
-                    val disY = abs(y_cord - locationF1[1])
-                    //Utils.loge("","disx=$disX --- disY=$disY")
-
-                    if (disX < disCal && disY < disCal) {
-                        imgMoveCaPhe.visibility = View.GONE
-                        img_caphe.visibility = View.INVISIBLE
-                        view_caphe.visibility = View.VISIBLE
-                        capheActive = true
-                    }
-                }
-                else -> {
-                }
-            }
-            true
-        }
-
-        // bac ha
-        img_bacha.setOnTouchListener { v, event ->
-            val layoutParams: ConstraintLayout.LayoutParams =
-                    imgMoveBacHa.getLayoutParams() as ConstraintLayout.LayoutParams
-            when (event.action) {
-
-                MotionEvent.ACTION_UP -> {
-                    if (!bachaActive) {
-                        imgMoveBacHa.visibility = View.INVISIBLE
-                        img_bacha.visibility = View.VISIBLE
-                    }
-                    checkResult()
-                }
-
-                MotionEvent.ACTION_DOWN -> {
-                    view_bacha.getLocationOnScreen(locationF1)
-                    xWidth = img_bacha.measuredWidth / 2
-                    yHeight = img_bacha.measuredHeight / 2
-                    Utils.loge("", "xWidth=$xWidth --- yHeight=$yHeight")
-                }
-                MotionEvent.ACTION_MOVE -> {
-                    var x_cord = event.rawX.toInt() - xWidth
-                    var y_cord = event.rawY.toInt() - yHeight
-                    if (x_cord > windowwidth) {
-                        x_cord = windowwidth
-                    }
-                    if (y_cord > windowheight) {
-                        y_cord = windowheight
-                    }
-
-                    layoutParams.marginStart = x_cord
-                    layoutParams.topMargin = y_cord
-                    imgMoveBacHa.layoutParams = layoutParams
-                    if (imgMoveBacHa.visibility == View.INVISIBLE) {
-                        imgMoveBacHa.visibility = View.VISIBLE
-                        img_bacha.visibility = View.INVISIBLE
-                    }
-
-
-                    val disX = abs(x_cord - locationF1[0]) - 80
-                    val disY = abs(y_cord - locationF1[1])
-                    //Utils.loge("","disx=$disX --- disY=$disY")
-
-                    if (disX < disCal && disY < disCal) {
-                        imgMoveBacHa.visibility = View.GONE
-                        img_bacha.visibility = View.INVISIBLE
-                        view_bacha.visibility = View.VISIBLE
-                        bachaActive = true
-                    }
-                }
-                else -> {
-                }
-            }
-            true
-        }
-
-        // dua
-        img_dua.setOnTouchListener { v, event ->
-            val layoutParams: ConstraintLayout.LayoutParams =
-                    imgMoveDua.getLayoutParams() as ConstraintLayout.LayoutParams
-            when (event.action) {
-
-                MotionEvent.ACTION_UP -> {
-                    if (!duaActive) {
-                        imgMoveDua.visibility = View.INVISIBLE
-                        img_dua.visibility = View.VISIBLE
-                    }
-                    checkResult()
-                }
-
-                MotionEvent.ACTION_DOWN -> {
-                    view_dua.getLocationOnScreen(locationF1)
-                    xWidth = img_dua.measuredWidth / 2
-                    yHeight = img_dua.measuredHeight / 2
-                    Utils.loge("", "xWidth=$xWidth --- yHeight=$yHeight")
-                }
-                MotionEvent.ACTION_MOVE -> {
-                    var x_cord = event.rawX.toInt() - xWidth
-                    var y_cord = event.rawY.toInt() - yHeight
-                    if (x_cord > windowwidth) {
-                        x_cord = windowwidth
-                    }
-                    if (y_cord > windowheight) {
-                        y_cord = windowheight
-                    }
-
-                    layoutParams.marginStart = x_cord
-                    layoutParams.topMargin = y_cord
-                    imgMoveDua.layoutParams = layoutParams
-                    if (imgMoveDua.visibility == View.INVISIBLE) {
-                        imgMoveDua.visibility = View.VISIBLE
-                        img_dua.visibility = View.INVISIBLE
-                    }
-
-
-                    val disX = abs(x_cord - locationF1[0]) - 80
-                    val disY = abs(y_cord - locationF1[1])
-                    //Utils.loge("","disx=$disX --- disY=$disY")
-
-                    if (disX < disCal && disY < disCal) {
-                        imgMoveDua.visibility = View.GONE
-                        img_dua.visibility = View.INVISIBLE
-                        view_dua.visibility = View.VISIBLE
-                        duaActive = true
-                    }
-                }
-                else -> {
-                }
-            }
-            true
-        }
-
-        // tau hu
-        img_tauhu.setOnTouchListener { v, event ->
-            val layoutParams: ConstraintLayout.LayoutParams =
-                    imgMoveTauHu.getLayoutParams() as ConstraintLayout.LayoutParams
-            when (event.action) {
-
-                MotionEvent.ACTION_UP -> {
-                    if (!tauhuActive) {
-                        imgMoveTauHu.visibility = View.INVISIBLE
-                        img_tauhu.visibility = View.VISIBLE
-                    }
-                    checkResult()
-                }
-
-                MotionEvent.ACTION_DOWN -> {
-                    view_tauhu.getLocationOnScreen(locationF1)
-                    xWidth = img_tauhu.measuredWidth / 2
-                    yHeight = img_tauhu.measuredHeight / 2
-                    Utils.loge("", "xWidth=$xWidth --- yHeight=$yHeight")
-                }
-                MotionEvent.ACTION_MOVE -> {
-                    var x_cord = event.rawX.toInt() - xWidth
-                    var y_cord = event.rawY.toInt() - yHeight
-                    if (x_cord > windowwidth) {
-                        x_cord = windowwidth
-                    }
-                    if (y_cord > windowheight) {
-                        y_cord = windowheight
-                    }
-
-                    layoutParams.marginStart = x_cord
-                    layoutParams.topMargin = y_cord
-                    imgMoveTauHu.layoutParams = layoutParams
-                    if (imgMoveTauHu.visibility == View.INVISIBLE) {
-                        imgMoveTauHu.visibility = View.VISIBLE
-                        img_tauhu.visibility = View.INVISIBLE
-                    }
-
-
-                    val disX = abs(x_cord - locationF1[0]) - 80
-                    val disY = abs(y_cord - locationF1[1])
-                    //Utils.loge("","disx=$disX --- disY=$disY")
-
-                    if (disX < disCal && disY < disCal) {
-                        imgMoveTauHu.visibility = View.GONE
-                        img_tauhu.visibility = View.INVISIBLE
-                        view_tauhu.visibility = View.VISIBLE
-                        tauhuActive = true
-                    }
-                }
-                else -> {
-                }
-            }
-            true
-        }
-
-        // duong den
-        img_duongden.setOnTouchListener { v, event ->
-            val layoutParams: ConstraintLayout.LayoutParams =
-                    imgMoveDuongDen.getLayoutParams() as ConstraintLayout.LayoutParams
-            when (event.action) {
-
-                MotionEvent.ACTION_UP -> {
-                    if (!duongdenActive) {
-                        imgMoveDuongDen.visibility = View.INVISIBLE
-                        img_duongden.visibility = View.VISIBLE
-                    }
-                    checkResult()
-                }
-
-                MotionEvent.ACTION_DOWN -> {
-                    view_duongden.getLocationOnScreen(locationF1)
-                    xWidth = img_duongden.measuredWidth / 2
-                    yHeight = img_duongden.measuredHeight / 2
-                    Utils.loge("", "xWidth=$xWidth --- yHeight=$yHeight")
-                }
-                MotionEvent.ACTION_MOVE -> {
-                    var x_cord = event.rawX.toInt() - xWidth
-                    var y_cord = event.rawY.toInt() - yHeight
-                    if (x_cord > windowwidth) {
-                        x_cord = windowwidth
-                    }
-                    if (y_cord > windowheight) {
-                        y_cord = windowheight
-                    }
-
-                    layoutParams.marginStart = x_cord
-                    layoutParams.topMargin = y_cord
-                    imgMoveDuongDen.layoutParams = layoutParams
-                    if (imgMoveDuongDen.visibility == View.INVISIBLE) {
-                        imgMoveDuongDen.visibility = View.VISIBLE
-                        img_duongden.visibility = View.INVISIBLE
-                    }
-
-
-                    val disX = abs(x_cord - locationF1[0]) - 80
-                    val disY = abs(y_cord - locationF1[1])
-                    //Utils.loge("","disx=$disX --- disY=$disY")
-
-                    if (disX < disCal && disY < disCal) {
-                        imgMoveDuongDen.visibility = View.GONE
-                        img_duongden.visibility = View.INVISIBLE
-                        view_duongden.visibility = View.VISIBLE
-                        duongdenActive = true
-                    }
-                }
-                else -> {
-                }
-            }
-            true
         }
     }
 
     fun checkResult() {
-        if (phomaiActive && capheActive && bachaActive && duaActive && tauhuActive && duongdenActive) {
-            changeScreen()
+        for ((_, value) in resultList.withIndex()) {
+            if (!value) {
+                return
+            }
         }
+        changeScreen()
     }
 
 
