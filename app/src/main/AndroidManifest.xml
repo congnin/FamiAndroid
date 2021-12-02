@@ -59,6 +59,24 @@
             android:theme="@style/ThemeFullSCreen" />
 
         <activity
+            android:name=".AKhachhangSampling"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/ThemeFullSCreen" />
+
+        <activity
+            android:name=".AKhachhangGame"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/ThemeFullSCreen" />
+
+        <activity
+            android:name=".AChucMungGame"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/ThemeFullSCreen" />
+
+        <activity
             android:name=".AManhgepChucmung"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:screenOrientation="landscape"

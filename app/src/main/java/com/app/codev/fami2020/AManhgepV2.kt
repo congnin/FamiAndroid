@@ -408,7 +408,7 @@ class AManhgepV2 : ABase() {
         object : CountDownTimer(500, 1000) {
             override fun onFinish() {
                 finish()
-                Utils.openAManhgepChucmung(this@AManhgepV2)
+                Utils.openAChucmungGame(this@AManhgepV2)
             }
 
             override fun onTick(l: Long) {}

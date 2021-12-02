@@ -1,6 +1,7 @@
 package com.app.codev.fami2020
 
 import android.os.Bundle
+import com.app.codev.Seleton
 import com.app.codev.utils.Utils
 import kotlinx.android.synthetic.main.a_game_landing.*
 import kotlinx.android.synthetic.main.a_game_landing.btn_back
@@ -15,7 +16,12 @@ class AGameLanding : ABase() {
         detectNavigationButtonBar()
 
         btn_game.setOnClickListener {
-            Utils.openAManhgepV2(this)
+            // check hop sua fami con hay ko
+            if (listQuaf[0].datrao < listQuaf[0].soqua) {
+                Utils.openAKhachhangGame(this)
+            } else {
+                Utils.toast(this, getString(R.string.dahetqua))
+            }
         }
 
         btn_back.setOnClickListener {

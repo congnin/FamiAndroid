@@ -34,17 +34,20 @@ class MyapiLoader{
         val SUCCESS_STATUS = 1
 
 
-        const val SV_LIVE = "http://projects.codev.vn/2020/106-vector-fami-canxi/api/"
+//        const val SV_LIVE = "http://projects.codev.vn/2020/106-vector-fami-canxi/api/"
         //const val SV_LIVE = "http://projects.codev.vn/2020/62-delta-fami-canxi-game-cho/api/"
         //const val SV_LIVE = "http://projects.codev.vn/2020/60-vector-fami-go-sampling/api/"
         //const val SV_LIVE = "http://projects.codev.vn/2020/21-vector-fami-3-tac-dong-chac-khoe-xuong/api/"
         //const val SV_LIVE = "http://192.168.0.8/CoDev/2020/21-Vector-Fami-3-tac-dong-chac-khoe-xuong/Develop/server/api/"
+        const val SV_LIVE = "http://projects.codev.vn/2021/98-fami-canxi-tet/api/"
         const val SV_PATH_LIST_CUAHANG = "get_list_cua_hang"
         const val SV_PATH_NV_LOGIN = "login"
         const val SV_PATH_KH_LOGIN = "register"
 
         const val SV_PATH_LUCKY = "luckydraw"
-
+        const val SV_PATH_GAME = "game"
+        const val SV_PATH_SAMPLING = "sampling"
+        const val SV_PATH_GAME_AWARD = "game_award"
 
         private var rfit: Retrofit? = null
         private fun getClient(link: String): Retrofit {
@@ -247,5 +250,28 @@ class MyapiLoader{
             return requestParams
         }
 
+        fun getParamKhachHangSimple(fullName : String, phone : String ,checkin_id : String
+        ) : HashMap<String, String>
+        {
+            val requestParams = HashMap<String, String>()
+            requestParams["full_name"] = fullName
+            requestParams["phone"] = phone
+            requestParams["key"] = "KdwAcfRdw"
+            requestParams["checkin_id"] = checkin_id
+
+            return requestParams
+        }
+
+        fun getParamGameAward(fullName : String, phone : String,
+                              log_id : String, award_id : String) : HashMap<String, String>
+        {
+            val requestParams = HashMap<String, String>()
+            requestParams["full_name"] = fullName
+            requestParams["phone"] = phone
+            requestParams["key"] = "KdwAcfRdw"
+            requestParams["log_id"] = log_id
+            requestParams["award_id"] = award_id
+            return requestParams
+        }
     }
 }

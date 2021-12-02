@@ -36,6 +36,9 @@ class Utils {
         const val SAVE_USER_NAME = "SAVE_USER_NAME"
         const val SAVE_USER_PHONE = "SAVE_USER_PHONE"
 
+        const val SAVE_KH_NAME = "SAVE_FULL_NAME"
+        const val SAVE_KH_PHONE = "SAVE_KH_PHONE"
+
         fun loge(tag: String, mess: String) {
             Log.e("AQua=$tag", mess)
         }
@@ -146,6 +149,11 @@ class Utils {
             mc.startActivity(intent)
         }
 
+        fun openAChucmungGame(mc: Context) {
+            val intent = Intent(mc, AChucMungGame::class.java)
+            mc.startActivity(intent)
+        }
+
         fun openAQuayWinV2(mc: Context) {
             val intent = Intent(mc, AQuayWinV2::class.java)
             mc.startActivity(intent)
@@ -176,6 +184,15 @@ class Utils {
             mc.startActivity(intent)
         }
 
+        fun openAKhachhangSampling(mc: Context) {
+            val intent = Intent(mc, AKhachhangSampling::class.java)
+            mc.startActivity(intent)
+        }
+
+        fun openAKhachhangGame(mc: Context) {
+            val intent = Intent(mc, AKhachhangGame::class.java)
+            mc.startActivity(intent)
+        }
 
         fun getCuahangData(value : String) : CuahangData
         {

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_nhanvien_new"
+    tools:context=".Splash">
+
+    <!--  <include layout="@layout/item_logo"/>-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_hor_title"
+        style="@style/guide_line_horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_hor_middle1"
+        style="@style/guide_line_horizontal"
+        app:layout_constraintGuide_percent="0.27" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_hor_middle2"
+        style="@style/guide_line_horizontal"
+        app:layout_constraintGuide_percent="0.47" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_center_vertical"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/text_thongtin_khachhang_new"
+        app:layout_constraintDimensionRatio="1934:160"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.073"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gd_hor_middle1" />
+
+    <ImageView
+        android:id="@+id/text_hoten"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:src="@mipmap/text_hoten_new"
+        app:layout_constraintBottom_toTopOf="@id/a_kh_edt_ten"
+        app:layout_constraintDimensionRatio="275:35"
+        app:layout_constraintHeight_percent="0.035"
+        app:layout_constraintStart_toStartOf="@id/a_kh_edt_ten" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        android:src="@mipmap/text_sdt_new"
+        app:layout_constraintBottom_toTopOf="@id/a_kh_edt_sdt"
+        app:layout_constraintDimensionRatio="182:35"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintStart_toStartOf="@id/a_kh_edt_sdt"
+        android:layout_marginLeft="5dp" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_top1"
+        style="@style/guide_line_horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_left1"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_left2"
+        style="@style/guide_line_vertical"
+        app:layout_constraintGuide_percent="0.68" />
+
+    <EditText
+        android:id="@+id/a_kh_edt_ten"
+        style="@style/edtInfo"
+        android:layout_marginRight="30dp"
+        android:background="@mipmap/bg_border_item_field_new"
+        android:inputType="text"
+        app:layout_constraintDimensionRatio="571:97"
+        app:layout_constraintEnd_toEndOf="@id/gd_center_vertical"
+        app:layout_constraintHeight_percent="0.09"
+        app:layout_constraintTop_toTopOf="@id/gd_hor_middle2" />
+
+    <EditText
+        android:id="@+id/a_kh_edt_sdt"
+        style="@style/edtInfo"
+        android:layout_marginLeft="30dp"
+        android:background="@mipmap/bg_border_item_field_new"
+        android:inputType="number"
+        app:layout_constraintDimensionRatio="571:97"
+        app:layout_constraintHeight_percent="0.09"
+        app:layout_constraintStart_toStartOf="@id/gd_center_vertical"
+        app:layout_constraintTop_toTopOf="@id/gd_hor_middle2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_top2"
+        style="@style/guide_line_horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <TextView
+        android:id="@+id/a_kh_tv_batdau"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_gradient_green"
+        android:gravity="center"
+        android:text="BẮT ĐẦU"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintDimensionRatio="721:121"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/gd_top2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

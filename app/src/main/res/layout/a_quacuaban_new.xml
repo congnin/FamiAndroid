@@ -51,7 +51,6 @@
             <TextView
                 android:id="@+id/tvqua1"
                 style="@style/text_number"
-                android:layout_gravity="bottom|end"
                 android:text="9" />
 
         </FrameLayout>
@@ -70,7 +69,6 @@
             <TextView
                 android:id="@+id/tvqua2"
                 style="@style/text_number"
-                android:layout_gravity="bottom|end"
                 android:text="9" />
         </FrameLayout>
 
@@ -88,7 +86,6 @@
             <TextView
                 android:id="@+id/tvqua3"
                 style="@style/text_number"
-                android:layout_gravity="bottom|end"
                 android:text="9" />
         </FrameLayout>
 
@@ -121,7 +118,6 @@
             <TextView
                 android:id="@+id/tvqua4"
                 style="@style/text_number"
-                android:layout_gravity="bottom|end"
                 android:text="9" />
         </FrameLayout>
 
@@ -139,7 +135,6 @@
             <TextView
                 android:id="@+id/tvqua5"
                 style="@style/text_number"
-                android:layout_gravity="bottom|end"
                 android:text="9" />
         </FrameLayout>
 
@@ -157,7 +152,6 @@
             <TextView
                 android:id="@+id/tvqua6"
                 style="@style/text_number"
-                android:layout_gravity="bottom|end"
                 android:text="9" />
         </FrameLayout>
 
