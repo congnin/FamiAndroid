@@ -17,6 +17,7 @@ class AGameLanding : ABase() {
 
         btn_game.setOnClickListener {
             // check hop sua fami con hay ko
+            checkGift()
             if (listQuaf[0].datrao < listQuaf[0].soqua) {
                 Utils.openAKhachhangGame(this)
             } else {

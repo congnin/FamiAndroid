@@ -53,6 +53,7 @@ class AChucMungGame : ABase() {
             return
         }
 
+        checkGift()
         // check hop sua fami con hay ko
         if (listQuaf[0].datrao < listQuaf[0].soqua) {
             listQuaf[0].datrao = listQuaf[0].datrao + 1

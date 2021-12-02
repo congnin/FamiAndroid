@@ -8,5 +8,6 @@ class AKhachhangGame : AKhachhangSimple() {
 
     override fun goToNext() {
         Utils.openAManhgepV2(this)
+        finish()
     }
 }
