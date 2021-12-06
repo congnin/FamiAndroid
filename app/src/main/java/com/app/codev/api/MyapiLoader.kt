@@ -215,7 +215,10 @@ class MyapiLoader{
                                 ,col_4_4 : Int
 
                                 ,col_5_1 : Int
-                                ,col_5_2 : Int
+                                ,col_5_2 : Int,
+
+                                latitude: String,
+                                longitude: String
         ) : HashMap<String, String>
         {
             val requestParams = HashMap<String, String>()
@@ -247,10 +250,14 @@ class MyapiLoader{
             requestParams["col_5_1"] = col_5_1.toString()
             requestParams["col_5_2"] = col_5_2.toString()
 
+            requestParams["latitude"] = latitude
+            requestParams["longitude"] = longitude
+
             return requestParams
         }
 
-        fun getParamKhachHangSimple(fullName : String, phone : String ,checkin_id : String
+        fun getParamKhachHangSimple(fullName : String, phone : String ,checkin_id : String,
+                                    latitude: String, longitude: String
         ) : HashMap<String, String>
         {
             val requestParams = HashMap<String, String>()
@@ -258,6 +265,8 @@ class MyapiLoader{
             requestParams["phone"] = phone
             requestParams["key"] = "KdwAcfRdw"
             requestParams["checkin_id"] = checkin_id
+            requestParams["latitude"] = latitude
+            requestParams["longitude"] = longitude
 
             return requestParams
         }

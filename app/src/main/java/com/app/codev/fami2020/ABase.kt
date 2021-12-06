@@ -29,6 +29,9 @@ import java.lang.Exception
 
 open class ABase : AppCompatActivity() {
 
+    var currentLat: String? = ""
+    var currentLong: String? = ""
+
     // The Fused Location Provider provides access to location APIs.
     protected val fusedLocationClient: FusedLocationProviderClient by lazy {
         LocationServices.getFusedLocationProviderClient(applicationContext)
@@ -151,6 +154,7 @@ open class ABase : AppCompatActivity() {
                         Manifest.permission.ACCESS_FINE_LOCATION) ==
                 PackageManager.PERMISSION_GRANTED) {
 
+            doSomethingWhenGetLocation()
             // Main code
             val currentLocationTask: Task<Location> = fusedLocationClient.getCurrentLocation(
                     PRIORITY_HIGH_ACCURACY,
@@ -180,14 +184,19 @@ open class ABase : AppCompatActivity() {
         }
     }
 
-    open fun updateLocation(location: Location) {}
+    open fun doSomethingWhenGetLocation() {}
+
+    open fun updateLocation(location: Location) {
+        currentLat = location.latitude.toString()
+        currentLong = location.longitude.toString()
+    }
 
     open fun showErrorLocation(exception: Exception?) {}
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode == REQUEST_FINE_LOCATION_PERMISSIONS_REQUEST_CODE) {
+        if (requestCode == REQUEST_FINE_LOCATION_PERMISSIONS_REQUEST_CODE) {
             when {
                 grantResults.isEmpty() -> {
                     Log.d(TAG, "User interaction was cancelled.")

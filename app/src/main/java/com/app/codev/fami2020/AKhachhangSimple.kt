@@ -61,7 +61,9 @@ abstract class AKhachhangSimple : ABase() {
         MyapiLoader.postApi(getPath(), MyapiLoader.getParamKhachHangSimple(
                 ten,
                 sdt,
-                checkin
+                checkin,
+                currentLat!!,
+                currentLong!!
         ), object : OnLoopjCompleted {
             override fun taskCompleted(resultsl: String) {
                 a_kh_tv_batdau.visibility = View.VISIBLE
@@ -84,8 +86,12 @@ abstract class AKhachhangSimple : ABase() {
         })
     }
 
+    override fun doSomethingWhenGetLocation() {
+        a_kh_tv_batdau.visibility = View.INVISIBLE
+    }
+
     override fun updateLocation(location: Location) {
-        super.updateLocation(location)
+        a_kh_tv_batdau.visibility = View.VISIBLE
         tvPosition.text = "LAT: ${location.latitude} - LONG: ${location.longitude}"
     }
 

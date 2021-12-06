@@ -245,7 +245,10 @@ class AKhachhangV2 : ABase() {
 
                     // col 5
                     vinasoyLoc,
-                    vinasoyThungLoc
+                    vinasoyThungLoc,
+
+                    currentLat!!,
+                    currentLong!!
             ), object : OnLoopjCompleted {
                 override fun taskCompleted(resultsl: String) {
                     a_kh_tv_batdau.visibility = View.VISIBLE
@@ -439,8 +442,12 @@ class AKhachhangV2 : ABase() {
         dialog.show()
     }
 
+    override fun doSomethingWhenGetLocation() {
+        a_kh_tv_batdau.visibility = View.INVISIBLE
+    }
+
     override fun updateLocation(location: Location) {
-        super.updateLocation(location)
         tvPosition.text = "LAT: ${location.latitude} - LONG: ${location.longitude}"
+        a_kh_tv_batdau.visibility = View.INVISIBLE
     }
 }
