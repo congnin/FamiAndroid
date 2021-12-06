@@ -1,16 +1,21 @@
 package com.app.codev.fami2020
 
 import android.content.DialogInterface
+import android.location.Location
+import android.os.Build
 import android.os.Bundle
 import android.text.InputType
 import android.text.TextUtils
 import android.view.View
 import android.widget.EditText
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.app.codev.Seleton
 import com.app.codev.api.MyapiLoader
 import com.app.codev.api.OnLoopjCompleted
 import com.app.codev.utils.Utils
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import kotlinx.android.synthetic.main.a_khachhang.*
 import kotlinx.android.synthetic.main.a_khachhang.a_kh_edt_sdt
 import kotlinx.android.synthetic.main.a_khachhang.a_kh_edt_ten
@@ -90,6 +95,8 @@ class AKhachhangV2 : ABase() {
         initView()
         Seleton.getInstance().reset()
         msnv.text = "MNV: " + Seleton.getInstance().msvn
+
+        requestCurrentLocation()
     }
 
     fun initView() {
@@ -206,7 +213,7 @@ class AKhachhangV2 : ABase() {
         if (famigoBich > 0 || famigoThungBich > 0 || famigoLoc > 0 || famigoThungLoc > 0
                 || famiCanxiBich > 0 || famiCanxiThungBich > 0 || famiCanxiLoc > 0 || famiCanxiThungLoc > 0
                 || famiNguyenBich > 0 || famiNguyenThungBich > 0 || famiNguyenLoc > 0 || famiNguyenThungLoc > 0
-                || famiKidLoc > 0 || famiCanxiThungLoc > 0 || vinasoyLoc > 0 || vinasoyThungLoc > 0
+                || famiKidLoc > 0 || famiKidThungLoc > 0 || vinasoyLoc > 0 || vinasoyThungLoc > 0
         ) {
             a_kh_tv_batdau.visibility = View.INVISIBLE
             MyapiLoader.postApi(MyapiLoader.SV_PATH_KH_LOGIN, MyapiLoader.getParamKhachhangV2(
@@ -432,4 +439,8 @@ class AKhachhangV2 : ABase() {
         dialog.show()
     }
 
+    override fun updateLocation(location: Location) {
+        super.updateLocation(location)
+        tvPosition.text = "LAT: ${location.latitude} - LONG: ${location.longitude}"
+    }
 }

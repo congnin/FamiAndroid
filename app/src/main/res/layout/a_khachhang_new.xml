@@ -40,7 +40,8 @@
         app:layout_constraintBottom_toTopOf="@id/a_kh_edt_ten"
         app:layout_constraintDimensionRatio="275:35"
         app:layout_constraintHeight_percent="0.035"
-        app:layout_constraintStart_toStartOf="@id/a_kh_edt_ten" />
+        app:layout_constraintStart_toStartOf="@id/a_kh_edt_ten"
+        android:layout_marginLeft="5dp" />
 
     <ImageView
         android:layout_width="0dp"
@@ -51,7 +52,8 @@
         app:layout_constraintBottom_toTopOf="@id/a_kh_edt_sdt"
         app:layout_constraintDimensionRatio="182:35"
         app:layout_constraintHeight_percent="0.04"
-        app:layout_constraintStart_toStartOf="@id/a_kh_edt_sdt" />
+        app:layout_constraintStart_toStartOf="@id/a_kh_edt_sdt"
+        android:layout_marginLeft="5dp" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -309,6 +311,14 @@
 
     </TableLayout>
 
+    <TextView
+        android:id="@+id/tvPosition"
+        app:layout_constraintBottom_toTopOf="@+id/msnv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="20dp"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/msnv"

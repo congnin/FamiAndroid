@@ -1,5 +1,7 @@
 package com.app.codev.fami2020
 
+import android.location.Location
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -8,10 +10,12 @@ import com.app.codev.api.MyapiLoader
 import com.app.codev.api.OnLoopjCompleted
 import com.app.codev.utils.Utils
 import kotlinx.android.synthetic.main.a_khachhang.*
+import kotlinx.android.synthetic.main.a_khachhang_new.*
 import kotlinx.android.synthetic.main.a_khachhang_simple.*
 import kotlinx.android.synthetic.main.a_khachhang_simple.a_kh_edt_sdt
 import kotlinx.android.synthetic.main.a_khachhang_simple.a_kh_edt_ten
 import kotlinx.android.synthetic.main.a_khachhang_simple.a_kh_tv_batdau
+import kotlinx.android.synthetic.main.a_khachhang_simple.tvPosition
 
 abstract class AKhachhangSimple : ABase() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +35,7 @@ abstract class AKhachhangSimple : ABase() {
     }
 
     fun initView() {
-
+        requestCurrentLocation()
     }
 
     fun checkValid() {
@@ -78,6 +82,11 @@ abstract class AKhachhangSimple : ABase() {
             }
 
         })
+    }
+
+    override fun updateLocation(location: Location) {
+        super.updateLocation(location)
+        tvPosition.text = "LAT: ${location.latitude} - LONG: ${location.longitude}"
     }
 
     abstract fun getPath(): String

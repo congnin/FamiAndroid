@@ -1,18 +1,42 @@
 package com.app.codev.fami2020
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
 import com.app.codev.model.QuaObj
 import com.app.codev.utils.Utils
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.tasks.CancellationTokenSource
+import com.google.android.gms.tasks.Task
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import java.lang.Exception
 
 open class ABase : AppCompatActivity() {
 
+    // The Fused Location Provider provides access to location APIs.
+    protected val fusedLocationClient: FusedLocationProviderClient by lazy {
+        LocationServices.getFusedLocationProviderClient(applicationContext)
+    }
+
+    // Allows class to cancel the location request if it exits the activity.
+    // Typically, you use one cancellation source per lifecycle.
+    protected var cancellationTokenSource = CancellationTokenSource()
 
     fun setFullScreen() {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -118,5 +142,83 @@ open class ABase : AppCompatActivity() {
     fun saveQua() {
         val jsonne = Gson().toJson(listQuaf)
         Utils.saveString(Utils.SAVE_SETTING, jsonne, this)
+    }
+
+    protected fun requestCurrentLocation() {
+        // Check Fine permission
+        if (ActivityCompat.checkSelfPermission(
+                        this,
+                        Manifest.permission.ACCESS_FINE_LOCATION) ==
+                PackageManager.PERMISSION_GRANTED) {
+
+            // Main code
+            val currentLocationTask: Task<Location> = fusedLocationClient.getCurrentLocation(
+                    PRIORITY_HIGH_ACCURACY,
+                    cancellationTokenSource.token
+            )
+
+            currentLocationTask.addOnCompleteListener { task: Task<Location> ->
+                val result = if (task.isSuccessful) {
+                    val result: Location = task.result
+                    "Location (success): ${result.latitude}, ${result.longitude}"
+                    updateLocation(location = result)
+                } else {
+                    val exception = task.exception
+                    "Location (failure): $exception"
+                    showErrorLocation(exception = exception)
+                }
+
+                Log.d("TAG", "getCurrentLocation() result: $result")
+            }
+        } else {
+            // Request fine location permission (full code below).
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                        REQUEST_FINE_LOCATION_PERMISSIONS_REQUEST_CODE)
+            }
+        }
+    }
+
+    open fun updateLocation(location: Location) {}
+
+    open fun showErrorLocation(exception: Exception?) {}
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(requestCode == REQUEST_FINE_LOCATION_PERMISSIONS_REQUEST_CODE) {
+            when {
+                grantResults.isEmpty() -> {
+                    Log.d(TAG, "User interaction was cancelled.")
+                    requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                            REQUEST_FINE_LOCATION_PERMISSIONS_REQUEST_CODE)
+                }
+                grantResults[0] == PackageManager.PERMISSION_GRANTED ->
+                    requestCurrentLocation()
+                else -> {
+                    val intent = Intent()
+                    intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                    val uri = Uri.fromParts(
+                            "package",
+                            BuildConfig.APPLICATION_ID,
+                            null
+                    )
+                    intent.data = uri
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
+                }
+            }
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        cancellationTokenSource.cancel()
+    }
+
+    companion object {
+        private const val TAG = "TAG"
+        private const val REQUEST_FINE_LOCATION_PERMISSIONS_REQUEST_CODE = 34
     }
 }
