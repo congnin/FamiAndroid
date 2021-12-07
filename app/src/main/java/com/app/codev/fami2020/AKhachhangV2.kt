@@ -448,6 +448,6 @@ class AKhachhangV2 : ABase() {
 
     override fun updateLocation(location: Location) {
         tvPosition.text = "LAT: ${location.latitude} - LONG: ${location.longitude}"
-        a_kh_tv_batdau.visibility = View.INVISIBLE
+        a_kh_tv_batdau.visibility = View.VISIBLE
     }
 }
